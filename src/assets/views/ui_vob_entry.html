@@ -1,0 +1,1117 @@
+<!-- Page Content -->
+<div class="content bg-gray-lighter">
+    <div class="row items-push">
+        <div class="col-sm-3">
+            <h1 class="page-heading">
+                {{caseInfo.firstName}},&nbsp;&nbsp;{{caseInfo.lastName}}
+            </h1>
+        </div>
+        <div class="col-sm-3">
+            <h1 class="page-heading">
+                {{caseInfo.caseID}}
+            </h1>
+        </div>
+        <div class="col-md-2">
+                <button class="btn btn-block btn-success" data-uib-tooltip="Create New VOB" data-tooltip-placement="bottom" type="button" ng-click="addNewVOB()">
+                    <i class="material-icons pull-right">note_add</i>
+                    New VOB
+                </button>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+<!-- END Page Content -->
+<div class="content content-narrow" ng-show="newVOBFlag">
+    <div class="js-wizard-simple block">
+        <!-- Step Tabs -->
+        <ul class="nav nav-tabs nav-tabs-alt nav-justified" data-js-tabs>
+            <li class="active">
+                <a href="#simple-step1" data-toggle="tab">Basic Info</a>
+            </li>
+            <li>
+                <a href="#simple-step2" data-toggle="tab">Coverage Info</a>
+            </li>
+            <li>
+                <a href="#simple-step3" data-toggle="tab">Mental Health</a>
+            </li>
+            <li>
+                <a href="#simple-step4" data-toggle="tab">Substance Abuse</a>
+            </li>
+            <li>
+                <a href="#simple-step5" data-toggle="tab">Family</a>
+            </li>
+            <li>
+                <a href="#simple-step6" data-toggle="tab">Precert</a>
+            </li>
+            <li>
+                <a href="#simple-step7" data-toggle="tab">Additional</a>
+            </li>
+        </ul>
+        <!-- END Step Tabs -->
+
+        <!-- Form -->
+        <form class="form-horizontal" action="index.html" method="post" onsubmit="return false;">
+            <!-- Steps Content -->
+            <div class="block-content tab-content" style="background-color: #f5f5f5;">
+                <!-- Step 1 Basic Info-->
+                <div class="tab-pane fade in push-30-t push-50 active" id="simple-step1">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <!-- Basic Info (Default forms) -->
+                            <div class="block">
+                                <div class="block-content block-content-narrow">
+                                    <form class="form-horizontal" action="index.html" method="post" onsubmit="return false;">
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="basic-info-firstname" ng-model="basic_info_firstName" >
+                                                    <label for="basic-info-firstname">First Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="basic-info-lastname" ng-model="basic_info_lastName" >
+                                                    <label for="basic-info-lastname">Last Name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <div class="form-material">
+                                                    <input data-js-datepicker class="form-control" type="text" id="basic-info-dob" ng-model="basic_info_dob" data-date-format="dd/mm/yyyy" >
+                                                    <label for="basic-info-dob">DOB</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="basic-info-insurance" ng-model="basic_info_insurance" >
+                                                    <label for="basic-info-insurance">Insurance</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="basic-info-patient-id" ng-model="basic_info_patient_id" >
+                                                    <label for="basic-info-patient-id">Patient ID</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="basic-info-group" ng-model="basic_info_group" >
+                                                    <label for="basic-info-group">Group #</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="basic-info-facility-name" ng-model="basic_info_facility" >
+                                                    <label for="basic-info-facility-name">Facility Name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="basic-info-tax-id" ng-model="basic_info_tax_id" >
+                                                    <label for="basic-info-tax-id">Tax ID</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="basic-info-npi" ng-model="basic_info_npi" >
+                                                    <label for="basic-info-npi">NPI</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END Basic Info (Default forms) -->
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- Primary Sub (Material forms) -->
+                            <div class="block">
+                                <div class="block-content block-content-narrow">
+                                    <form class="form-horizontal push-10-t" action="index.html" method="post" onsubmit="return false;">
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="basic-info-primary-sub" ng-model="basic_info_primary_sub" >
+                                                    <label for="basic-info-primary-sub">Primary Sub</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <div class="form-material">
+                                                    <input data-js-datepicker class="form-control" type="text" id="basic-info-primary-dob" ng-model="basic_info_primary_dob" data-date-format="dd/mm/yyyy" >
+                                                    <label for="basic-info-primary-dob">Primary DOB</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-lg-8" for="basic_info_health_coverage">Behavioral Health Converage Available</label>
+                                            <div class="col-lg-4">
+                                                <select  class="form-control" tabindex="3" id="basic_info_health_coverage" ng-model="basic_info_health_coverage" style="width: 100%;"  ng-init="basic_info_health_coverage = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-lg-8" for="basic_info_single_case">Single Case Agreements</label>
+                                            <div class="col-lg-4">
+                                                <select  class="form-control" tabindex="3" id="basic_info_single_case" ng-model="basic_info_single_case" style="width: 100%;"  ng-init="basic_info_single_case = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END Primary Sub (Material forms) -->
+                        </div>
+                    </div>
+                    <!-- 1 Basic Info -->
+
+                    <!-- 2 Basic Info -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <!-- 2 Basic Info (Default forms) -->
+                            <div class="block">
+                                <div class="block-content block-content-narrow">
+                                    <form class="form-horizontal" action="index.html" method="post" onsubmit="return false;">
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="basic-info-insurance-phone" ng-model="basic_info_insurance_phone" >
+                                                    <label for="basic-info-insurance-phone">Insurance #</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="basic-info-group-name" ng-model="basic_info_group_name" >
+                                                    <label for="basic-info-group-name">Group Name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="basic-info-plan-name" ng-model="basic_info_plan_name" >
+                                                    <label for="basic-info-plan-name">Plan Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input class="form-control" type="text" id="basic-info-plan-type" ng-model="basic_info_plan_type" >
+                                                    <label for="basic-info-plan-type">Plan Type</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input data-js-datepicker class="form-control" type="text" id="basic-info-eff-date" ng-model="basic_info_eff_date" data-date-format="dd/mm/yyyy" >
+                                                    <label for="basic-info-eff-date">Eff.Date</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-material">
+                                                    <input data-js-datepicker class="form-control" type="text" id="basic-info-term-date" ng-model="basic_info_term_date" data-date-format="dd/mm/yyyy" >
+                                                    <label for="basic-info-term-date">Term.Date</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END 2 Basic Info (Default forms) -->
+                        </div>
+                    </div>
+                    <!-- END 2 Basic Info -->
+                </div>
+                <!-- END Step 1 Basic Info -->
+
+                <!-- Step 2 Coverage Info-->
+                <div class="tab-pane fade push-30-t push-50" id="simple-step2">
+                    <div class="form-group">
+                        <div class="col-lg-6">
+                            <!-- Table Sections (data-js-table-sections attribute is initialized in js/directives.js) -->
+                            <div class="block">
+                                <div class="block-content">
+                                    <!--
+                                    Separate your table content with multiple tbody sections. Add one row and add the class .js-table-sections-header to a
+                                    tbody section to make it clickable. It will then toggle the next tbody section which can have multiple rows. Eg:
+
+                                    <tbody class="js-table-sections-header">One row</tbody>
+                                    <tbody>Multiple rows</tbody>
+                                    <tbody class="js-table-sections-header">One row</tbody>
+                                    <tbody>Multiple rows</tbody>
+                                    <tbody class="js-table-sections-header">One row</tbody>
+                                    <tbody>Multiple rows</tbody>
+
+                                    You can also add the class .open in your tbody.js-table-sections-header to make the next tbody section visible by default
+                                    -->
+                                    <table class="table table-hover" data-js-table-sections>
+                                        <tbody>
+                                        <tr>
+                                            <td class="text-left font-w600">In Network</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="converage-info-innet" ng-model="converage_info_innet" style="width: 100%;"  ng-init="converage_info_innet = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Out of Network</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="2" id="converage-info-out" ng-model="converage_info_out" style="width: 100%;"  ng-init="converage_info_out = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Referral Required</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="3" id="converage-info-ref" ng-model="converage_info_ref" style="width: 100%;"  ng-init="converage_info_ref = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Free-Standing Facility Covered</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="4" id="converage-info-free" ng-model="converage_info_free" style="width: 100%;"  ng-init="converage_info_free = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">JCAHO/CARF Required</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="5" id="converage-info-jcaho" ng-model="converage_info_jcaho" style="width: 100%;"  ng-init="converage_info_jcaho = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">State License Sufficient</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="6" id="converage-info-state" ng-model="converage_info_state" style="width: 100%;"  ng-init="converage_info_state = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Assignment of Benefits Avaialble</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="7" id="converage-info-ass" ng-model="converage_info_ass" style="width: 100%;"  ng-init="converage_info_ass = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Payment Sent to Member</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="8" id="converage-info-pay" ng-model="converage_info_pay" style="width: 100%;"  ng-init="converage_info_pay = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Labs(80305)</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="9" id="converage-info-lab" ng-model="converage_info_lab" style="width: 100%;"  ng-init="converage_info_lab = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Sub-Acute Detox (H0010)</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="10" id="converage-info-sub" ng-model="converage_info_sub" style="width: 100%;"  ng-init="converage_info_sub = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">RTC (H2036)</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="11" id="converage-info-rtc" ng-model="converage_info_rtc" style="width: 100%;"  ng-init="converage_info_rtc = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">PHP (H0035)</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="12" id="converage-info-php" ng-model="converage_info_php" style="width: 100%;"  ng-init="converage_info_php = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">IOP (H0015)</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="13" id="converage-info-iop" ng-model="converage_info_iop" style="width: 100%;"  ng-init="converage_info_iop = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">OP Individual Therapy 45 min (90834)</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="14" id="converage-info-op1" ng-model="converage_info_op1" style="width: 100%;"  ng-init="converage_info_op1 = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">OP Individual Therapy 60 min (90837)</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="15" id="converage-info-op2" ng-model="converage_info_op2" style="width: 100%;"  ng-init="converage_info_op2 = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END Table Sections -->
+                        </div>
+                    </div>
+                </div>
+                <!-- END Step 2 Coverage Info-->
+
+                <!-- Step 3 Mental Health-->
+                <div class="tab-pane fade push-30-t push-50" id="simple-step3">
+                    <div class="form-group">
+                        <div class="col-lg-6">
+                            <div class="block">
+                                <div class="block-content">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-borderless text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 20%;"></th>
+                                                    <th class="text-center" style="width: 20%;">RTC
+                                                        <label class="css-input css-checkbox css-checkbox-primary">
+                                                            <input type="checkbox" id="row_mental-rtc" ng-model="mh_RTC_covered"><span></span>
+                                                        </label>
+                                                    </th>
+                                                    <th class="text-center" style="width: 20%;">PHP
+                                                        <label class="css-input css-checkbox css-checkbox-primary">
+                                                            <input type="checkbox" id="row_mental-php" ng-model="mh_PHP_covered"><span></span>
+                                                        </label>
+                                                    </th>
+                                                    <th class="text-center" style="width: 20%;">IOP
+                                                        <label class="css-input css-checkbox css-checkbox-primary">
+                                                            <input type="checkbox" id="row_mental-iop" ng-model="mh_IOP_covered"><span></span>
+                                                        </label>
+                                                    </th>
+                                                    <th class="text-center" style="width: 20%;">OP
+                                                        <label class="css-input css-checkbox css-checkbox-primary">
+                                                            <input type="checkbox" id="row_mental-op" ng-model="mh_OP_covered"><span></span>
+                                                        </label>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="text-left font-w600">Deductible</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_RTC_deductible" tabindex="1" ></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_PHP_deductible" tabindex="10"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_IOP_deductible" tabindex="19"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_OP_deductible" tabindex="28"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Ded met</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_RTC_dedMet" tabindex="2"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_PHP_dedMet" tabindex="11"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_IOP_dedMet" tabindex="20"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_OP_dedMet" tabindex="29"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Copay</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_RTC_copay" tabindex="3"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_PHP_copay" tabindex="12"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_IOP_copay" tabindex="21"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_OP_copay" tabindex="30"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Colns</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_RTC_coins" tabindex="4"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_PHP_coins" tabindex="13"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_IOP_coins" tabindex="22"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_OP_coins" tabindex="31"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">OOP</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_RTC_oop" tabindex="5"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_PHP_oop" tabindex="14"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_IOP_oop" tabindex="23"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_OP_oop" tabindex="32"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">OOP Met</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_RTC_oopMet" tabindex="6"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_PHP_oopMet" tabindex="15"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_IOP_oopMet" tabindex="24"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_OP_oopMet" tabindex="33"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Ins. Coverage</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_RTC_insCoverage" tabindex="7"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_PHP_insCoverage" tabindex="16"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_IOP_insCoverage" tabindex="25"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_OP_insCoverage" tabindex="34"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Daily max</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_RTC_dailyMax" tabindex="8"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_PHP_dailyMax" tabindex="17"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_IOP_dailyMax" tabindex="26"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_OP_dailyMax" tabindex="35"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Yearly max</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_RTC_yearlyMax" tabindex="9"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_PHP_yearlyMax" tabindex="18"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_IOP_yearlyMax" tabindex="27"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="mh_OP_yearlyMax" tabindex="36"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Step 3 Mental Health-->
+                <!-- Step 4 Substance Abuse-->
+                <div class="tab-pane fade push-30-t push-50" id="simple-step4">
+                    <div class="form-group">
+                        <div class="col-lg-6">
+                            <div class="block">
+                                <div class="block-content">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-borderless text-center">
+                                            <thead>
+                                            <tr>
+                                                <th style="width: 16%;"></th>
+                                                <th class="text-center" style="width: 16%;">SUB-ACUTE DETOX
+                                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                                        <input type="checkbox" id="row_substance-sub" ng-model="sa_SAD_covered"><span></span>
+                                                    </label>
+                                                </th>
+                                                <th class="text-center" style="width: 16%;">RTC
+                                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                                        <input type="checkbox" id="row_substance-rtc" ng-model="sa_RTC_covered"><span></span>
+                                                    </label>
+                                                </th>
+                                                <th class="text-center" style="width: 16%;">PHP
+                                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                                        <input type="checkbox" id="row_substance-php" ng-model="sa_PHP_covered"><span></span>
+                                                    </label>
+                                                </th>
+                                                <th class="text-center" style="width: 16%;">IOP
+                                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                                        <input type="checkbox" id="row_substance-iop" ng-model="sa_IOP_covered"><span></span>
+                                                    </label>
+                                                </th>
+                                                <th class="text-center" style="width: 16%;">OP
+                                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                                        <input type="checkbox" id="row_substance-op" ng-model="sa_OP_covered"><span></span>
+                                                    </label>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="text-left font-w600">Deductible</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_SAD_deductible" tabindex="1"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_RTC_deductible" tabindex="10"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_PHP_deductible" tabindex="19"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_IOP_deductible" tabindex="28"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_OP_deductible" tabindex="37"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Ded met</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_SAD_dedMet" tabindex="2"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_RTC_dedMet" tabindex="11"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_PHP_dedMet" tabindex="20"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_IOP_dedMet" tabindex="29"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_OP_dedMet" tabindex="38"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Copay</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_SAD_copay" tabindex="3"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_RTC_copay" tabindex="12"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_PHP_copay" tabindex="21"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_IOP_copay" tabindex="30"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_OP_copay" tabindex="39"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Colns</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_SAD_coins" tabindex="4"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_RTC_coins" tabindex="13"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_PHP_coins" tabindex="22"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_IOP_coins" tabindex="31"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_OP_coins" tabindex="40"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">OOP</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_SAD_oop" tabindex="5"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_RTC_oop" tabindex="14"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_PHP_oop" tabindex="23"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_IOP_oop" tabindex="32"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_OP_oop" tabindex="41"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">OOP Met</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_SAD_oopMet" tabindex="6"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_RTC_oopMet" tabindex="15"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_PHP_oopMet" tabindex="24"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_IOP_oopMet" tabindex="33"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_OP_oopMet" tabindex="42"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Ins. Coverage</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_SAD_insCoverage" tabindex="7"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_RTC_insCoverage" tabindex="16"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_PHP_insCoverage" tabindex="25"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_IOP_insCoverage" tabindex="34"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_OP_insCoverage" tabindex="43"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Daily max</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_SAD_dailyMax" tabindex="8"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_RTC_dailyMax" tabindex="17"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_PHP_dailyMax" tabindex="26"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="ma_IOP_dailyMax" tabindex="35"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_OP_dailyMax" tabindex="44"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Yearly max</td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_SAD_yearlyMax" tabindex="9"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_RTC_yearlyMax" tabindex="18"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="ma_PHP_yearlyMax" tabindex="27"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_IOP_yearlyMax" tabindex="36"></td>
+                                                <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="sa_OP_yearlyMax" tabindex="45"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Step 4 Substance Abuse-->
+                <!-- Step 5 Family-->
+                <div class="tab-pane fade push-30-t push-50" id="simple-step5">
+                    <div class="form-group">
+                        <div class="col-lg-4">
+                            <div class="block">
+                                <div class="block-content">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-borderless text-center">
+                                            <thead>
+                                            <tr>
+                                                <th style="width: 10%;"></th>
+                                                <th class="text-center" style="width: 10%;">FAMILY CVG
+                                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                                        <input type="checkbox" id="row_family-cvg" ng-model="fam_Covered"><span></span>
+                                                    </label>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-left font-w600">Family Ded</td>
+                                                    <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="fam_deductible"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-left font-w600">Family Ded Met</td>
+                                                    <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="fam_dedMet"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-left font-w600">Family OOP</td>
+                                                    <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="fam_oop"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-left font-w600">Family OOP Met</td>
+                                                    <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="fam_oopMet"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-left font-w600">Ded incl in OOP?</td>
+                                                    <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="fam_dedIncludedInOOP"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-left font-w600">Free schedule?</td>
+                                                    <td class="font-w600 "><input type="text" class="text-center" style="width: 80%;" id="val-currency" ng-model="fam_feeSchedule"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Step 5 Family-->
+                <!-- Step 6 Precert-->
+                <div class="tab-pane fade push-30-t push-50" id="simple-step6">
+                        <div class="form-group">
+                            <div class="col-lg-6">
+                                <!-- Table Sections (data-js-table-sections attribute is initialized in js/directives.js) -->
+                                <div class="block">
+                                    <div class="block-content">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <!--<label class="col-xs-12">Type</label>-->
+                                                    <div class="col-lg-12">
+                                                        <!--<table class="table table-striped table-borderless" data-js-table-sections>-->
+                                                            <!--<tbody>-->
+                                                                <!--<tr>-->
+                                                                    <!--<td class="text-left font-w600">Pre-certification</td>-->
+                                                                    <!--<td class="hidden-xs text-right">-->
+                                                                        <!--<label class="css-input css-radio css-radio-warning push-10-r">-->
+                                                                            <!--<input type="radio" id="type_cert" ng-model="type_cert" checked><span></span>-->
+                                                                        <!--</label>-->
+                                                                    <!--</td>-->
+                                                                <!--</tr>-->
+                                                                <!--<tr>-->
+                                                                    <!--<td class="text-left font-w600">Prior authorization</td>-->
+                                                                    <!--<td class="hidden-xs text-right">-->
+                                                                        <!--<label class="css-input css-radio css-radio-warning push-10-r">-->
+                                                                            <!--<input type="radio" id="type_auth" ng-model="type_auth"><span></span>-->
+                                                                        <!--</label>-->
+                                                                    <!--</td>-->
+                                                                <!--</tr>-->
+                                                            <!--</tbody>-->
+                                                        <!--</table>-->
+                                                        <div class="form-group">
+                                                            <label class="col-xs-12">Type</label>
+                                                            <div class="col-xs-12">
+                                                                <label class="css-input css-radio css-radio-warning push-10-r">
+                                                                    <input type="radio" name="mega-gender-group" ng-model="precertType" ng-value="'Pre-certification'"><span></span> Pre-certification
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-xs-12">
+                                                                <label class="css-input css-radio css-radio-warning">
+                                                                    <input type="radio" name="mega-gender-group" ng-model="precertType" ng-value="'Prior-authorization'"><span></span> Prior authorization
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 text-right">
+                                                Precert Penalty
+                                                <label class="css-input switch switch-primary" for="precert_pealty">
+                                                    <select  class="form-control" tabindex="1" id="precert_pealty" ng-model="precertPenalty" style="width: 100%;"  ng-init="precertPenalty = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                    </select>
+                                                </label>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END Table Sections -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-6">
+                                <!-- Table Sections (data-js-table-sections attribute is initialized in js/directives.js) -->
+                                <div class="block">
+                                    <div class="block-content">
+                                        <table class="table table-hover" data-js-table-sections>
+                                            <tbody>
+                                            <tr>
+                                                <td class="text-left font-w600">Sub Acute Detox</td>
+                                                <td>
+                                                    <small></small>
+                                                </td>
+                                                <td class="hidden-xs text-right">
+                                                    <select  class="form-control" tabindex="1" id="precert_sub_actue" ng-model="precertSubAcuteDetox" style="width: 100%;"  ng-init="precertSubAcuteDetox = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">RTC</td>
+                                                <td>
+                                                    <small></small>
+                                                </td>
+                                                <td class="hidden-xs text-right">
+                                                    <select  class="form-control" tabindex="1" id="precert_rtc" ng-model="precertRTC" style="width: 100%;"  ng-init="precertRTC = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Labs</td>
+                                                <td>
+                                                    <small></small>
+                                                </td>
+                                                <td class="hidden-xs text-right">
+                                                    <select  class="form-control" tabindex="1" id="precert_labs" ng-model="precertLabs" style="width: 100%;"  ng-init="precertLabs = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">PHP</td>
+                                                <td>
+                                                    <small></small>
+                                                </td>
+                                                <td class="hidden-xs text-right">
+                                                    <select  class="form-control" tabindex="1" id="precert_php" ng-model="precertPHP" style="width: 100%;"  ng-init="precertPHP = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">IOP</td>
+                                                <td>
+                                                    <small></small>
+                                                </td>
+                                                <td class="hidden-xs text-right">
+                                                    <select  class="form-control" tabindex="1" id="precert_iop" ng-model="precertIOP" style="width: 100%;"  ng-init="precertIOP = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">OP</td>
+                                                <td>
+                                                    <small></small>
+                                                </td>
+                                                <td class="hidden-xs text-right">
+                                                    <select  class="form-control" tabindex="1" id="precert_op" ng-model="precertOP" style="width: 100%;"  ng-init="precertOP = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END Table Sections -->
+                            </div>
+                        </div>
+                </div>
+                <!-- END Step 6 Precert-->
+                <!-- Step 7 Additional-->
+                <div class="tab-pane fade push-30-t push-50" id="simple-step7">
+                    <div class="js-table-sections-header">
+                        <h3 class="font-w600">Additional Services and Questions</h3>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-6">
+                            <!-- Table Sections (data-js-table-sections attribute is initialized in js/directives.js) -->
+                            <div class="block">
+                                <div class="block-content">
+                                    <table class="table table-hover" data-js-table-sections>
+                                        <tbody>
+                                        <tr>
+                                            <td class="text-left font-w600">Labs have a different ded/OOP</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_labs1" ng-model="labsHaveDifferentDedOOP" style="width: 100%;"  ng-init="labsHaveDifferentDedOOP = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Labs have a daily/yearly max</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_labs2" ng-model="labsHaveADailyYearlyMax" style="width: 100%;"  ng-init="labsHaveADailyYearlyMax = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Pre-existing clause</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_pre_existing" ng-model="preExistingClause" style="width: 100%;"  ng-init="preExistingClause = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Out-of-state exclusions</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_out_of_state" ng-model="outOfStateExclusions" style="width: 100%;"  ng-init="outOfStateExclusions = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Specific policy exclusions</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_specific_policy" ng-model="specificPolicyExclusions" style="width: 100%;"  ng-init="specificPolicyExclusions = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Affordable care act policy</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_affordable" ng-model="affordableCareActPolicy" style="width: 100%;"  ng-init="affordableCareActPolicy = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Legacy policy</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_legacy_policy" ng-model="legacyPolicy" style="width: 100%;"  ng-init="legacyPolicy = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">MH/SA benefits combined</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_mh_sa" ng-model="mhsaBenefitsCombined" style="width: 100%;"  ng-init="mhsaBenefitsCombined = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Month to month policy</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_month_policy" ng-model="monthToMonth" style="width: 100%;"  ng-init="monthToMonth = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">PHP considered as inpatient</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_php" ng-model="phpConsideredInpatient" style="width: 100%;"  ng-init="phpConsideredInpatient = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">IOP considered as inpatient</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_iop" ng-model="iopConsideredInpatient" style="width: 100%;"  ng-init="iopConsideredInpatient = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Can OP be performed in facility</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_op1" ng-model="canOPBePerformedInFacility" style="width: 100%;"  ng-init="canOPBePerformedInFacility = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Can OP be billed on a UB</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_op2" ng-model="canOPBeBilledOnAUB" style="width: 100%;"  ng-init="canOPBeBilledOnAUB = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left font-w600">Multiple Family Group(90849)</td>
+                                            <td>
+                                                <small></small>
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <select  class="form-control" tabindex="1" id="additional_multi" ng-model="multipleFamilyGroup" style="width: 100%;"  ng-init="multipleFamilyGroup = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END Table Sections -->
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- Table Sections (data-js-table-sections attribute is initialized in js/directives.js) -->
+                            <div class="row">
+                                <div class="block">
+                                    <div class="block-content">
+                                        <table class="table table-hover" data-js-table-sections>
+                                            <tbody>
+                                            <tr>
+                                                <td class="text-left font-w600">Family therapy w/ patient (90847)</td>
+                                                <td>
+                                                    <small></small>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <select  class="form-control" tabindex="1" id="additional_family_therapy1" ng-model="familyTherapyWithPatient" style="width: 100%;"  ng-init="familyTherapyWithPatient = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Family therapy w/o patient (90846)</td>
+                                                <td>
+                                                    <small></small>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <select  class="form-control" tabindex="1" id="additional_family_therapy2" ng-model="familyTherapyWithoutPatient" style="width: 100%;"  ng-init="familyTherapyWithoutPatient = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Long term case management</td>
+                                                <td>
+                                                    <small></small>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <select  class="form-control" tabindex="1" id="additional_long_term_case" ng-model="longTermCaseManagement" style="width: 100%;"  ng-init="longTermCaseManagement = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left font-w600">Telehealth (Q3014)</td>
+                                                <td>
+                                                    <small></small>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <select  class="form-control" tabindex="1" id="additional_telehealth" ng-model="telehealth" style="width: 100%;"  ng-init="telehealth = ynOptions[0]" ng-options="option as option.name for option in ynOptions">
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END Table Sections -->
+                            </div>
+                            <div class="row">
+                                <!-- Maxlength (Material forms) -->
+                                <div class="block">
+                                    <div class="block-content block-content-narrow">
+                                        <form class="form-horizontal" action="index.html" method="post" onsubmit="return false;">
+                                            <div class="form-group">
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                    <div class="form-material">
+                                                        <input data-js-datepicker class="form-control" type="text" id="additional-policy-paid" ng-model="policyPaidThruDate" data-date-format="dd/mm/yyyy" >
+                                                        <label for="additional-policy-paid">Policy Paid Through Date</label>
+                                                    </div></div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-material">
+                                                        <input class="form-control" type="text" id="additional-get-period" ng-model="gracePeriod" >
+                                                        <label for="additional-get-period">Grace Period</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                    <div class="form-material">
+                                                        <input class="form-control" type="text" id="additional-payor-id" ng-model="payorID" >
+                                                        <label for="additional-payor-id">Payor ID</label>
+                                                    </div></div>
+                                                    <div class="row">
+                                                    <div class="form-material">
+                                                        <textarea data-js-maxlength="{alwaysShow: true}" class="form-control" id="additional-claims-address" ng-model="claimsAddress" rows="5" maxlength="100" ></textarea>
+                                                        <label for="additional-claims-address">Claims Address</label>
+                                                    </div></div>
+                                                    <div class="row">
+                                                    <div class="form-material">
+                                                        <input class="form-control" type="text" id="additional-behavioral-phone" ng-model="behavior_health_cert" >
+                                                        <label for="additional-behavioral-phone">Behavioral Health Precert Phone #</label>
+                                                    </div></div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-material">
+                                                        <textarea data-js-maxlength="{alwaysShow: true}" class="form-control" id="additional-claims-note" ng-model="clientNotes" rows="10" maxlength="300" ></textarea>
+                                                        <label for="additional-claims-address">Client Notes</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <div class="form-material">
+                                                        <textarea data-js-maxlength="{alwaysShow: true}" class="form-control" id="additional-rate" ng-model="reimbursementRates" rows="2" maxlength="100" ></textarea>
+                                                        <label for="additional-rate">Reimbursement Rates</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- END Maxlength (Material forms) -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- END Step 7 Additional-->
+            </div>
+            <!-- END Steps Content -->
+
+        </form>
+        <!-- END Form -->
+    </div>
+</div>

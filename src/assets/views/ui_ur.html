@@ -1,0 +1,534 @@
+<!-- Page Content -->
+<div class="content bg-gray-lighter">
+    <div class="row items-push">
+        <div class="col-sm-3">
+            <h1 class="page-heading">
+                {{vobInfo.firstName}},&nbsp;&nbsp;{{vobInfo.lastName}}
+            </h1>
+        </div>
+        <div class="col-sm-3">
+            <h1 class="page-heading">
+                {{vobInfo.caseID}}
+            </h1>
+        </div>
+    </div>
+    <div class="row items-push">
+        <div class="col-md-2">
+            <button class="btn btn-block btn-success" data-uib-tooltip="Add a review" data-tooltip-placement="bottom" type="button" ng-click="addRevieiw()">
+                <i class="material-icons pull-right">note_add</i>
+                Add a review
+            </button>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+            <button class="btn btn-block btn-success" data-uib-tooltip="Add auth" data-tooltip-placement="bottom" type="button" ng-click="addAuth()">
+                <i class="material-icons pull-right">note_add</i>
+                Add auth
+            </button>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+<div class="content content-narrow" ng-show="addReviewFlag">
+    <h3 class="font-w600">Additional Services and Questions</h3>
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Choose a VOB (Default forms) -->
+            <div class="block">
+                <div class="block-content block-content-narrow">
+                    <form class="form-horizontal" action="index.html" method="post" onsubmit="return false;">
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-vob-patientname" name="ur-choose-vob-patientname" ng-model="patientName" disabled>
+                                    <label for="ur-choose-vob-patientname">Patient Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-material">
+                                    <input data-js-datepicker class="form-control" type="text" id="ur-choose-vob-dob"ng-model="birth" data-date-format="dd/mm/yyyy" disabled>
+                                    <label for="ur-choose-vob-dob">DOB</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-insurance" name="ur-choose-insurance" ng-model="insurance" disabled>
+                                    <label for="ur-choose-insurance">Insurance</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-ptid" name="ur-choose-ptid" ng-model="patientId" disabled>
+                                    <label for="ur-choose-ptid">Pt ID</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-group" name="ur-choose-group" ng-model="groupNumber" disabled>
+                                    <label for="ur-choose-group">Group #</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-material">
+                                    <input data-js-datepicker class="form-control" type="text" id="ur-choose-vob-completed" ng-model="completeDate" data-date-format="dd/mm/yyyy" disabled>
+                                    <label for="ur-choose-vob-completed">Data VOB Completed</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-group-facility" name="ur-choose-group-facility" ng-model="facilityName" disabled>
+                                    <label for="ur-choose-group-facility">Facility</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-npi" name="ur-choose-npi" ng-model="npi" disabled>
+                                    <label for="ur-choose-npi">NPI</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-mg" name="ur-choose-mg" ng-model="vobID" disabled>
+                                    <label for="ur-choose-mg">MG VOB ID</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-info pull-right" type="button" ng-click="chooseRevieiw()">
+                                    Choose
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- END  Choose a VOB (Default forms) -->
+        </div>
+    </div>
+</div>
+<div class="content content-narrow">
+    <!-- END  Review a VOB (Default forms) -->
+    <div class="col-lg-4" ng-show="choosedReviewFlag">
+        <div class="block" id="my-block">
+            <div class="block-header">
+                <div class="row block-title">
+                    <div class="col-lg-5">SMITHCED02</div>
+                    <div class="col-lg-5">Blue Cross HMO</div>
+                    <div class="col-lg-2">
+                        <ul class="block-options">
+                            <li>
+                                <button type="button" data-js-block-option data-action="content_toggle"></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="block-content">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <!-- Basic Info (Default forms) -->
+                        <div class="block" ng-disabled="reviewType">
+                            <div class="block-content block-content-narrow">
+                                <form class="form-horizontal" action="index.html" method="post" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" ng-model="patientName">
+                                                <label for="choose-review-patient-name">Patient Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-mr" name="choose-review-mr" ng-model="medRecNumber">
+                                                <label for="choose-review-mr">MR #</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="form-material">
+                                                <input data-js-datepicker class="form-control" type="text" id="choose-review-doa" name="choose-review-doa" ng-model="dateOfAdmission" data-date-format="dd/mm/yy" >
+                                                <label for="choose-review-doa">DOA</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-md" name="choose-review-md" ng-model="md">
+                                                <label for="choose-review-md">MD</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="form-material">
+                                                <input data-js-masked-input="99:99" class="form-control" type="text" id="choose-review-admit" name="admitTime" ng-model="admitTime">
+                                                <label for="choose-review-admit">Admit Time</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="form-material">
+                                                <input data-js-datepicker class="form-control" type="text" id="choose-review-date" name="choose-review-date" ng-model="reviewDate" data-date-format="dd/mm/yyyy" >
+                                                <label for="choose-review-date">Review Date</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-mg" name="choose-review-mg" ng-model="mgStaffResource">
+                                                <label for="choose-review-mg">MG Staff Resource</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="form-material">
+                                                <textarea data-js-maxlength="{alwaysShow: true}" class="form-control" id="choose-review-contact" name="choose-review-contact" ng-model="reviewNotes" rows="4" maxlength="100" ></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- END Basic Info (Default forms) -->
+                    </div>
+                    <div class="col-lg-6">
+                        <!-- Basic Info (Default forms) -->
+                        <div class="block">
+                            <div class="block-content block-content-narrow">
+                                <form class="form-horizontal" action="index.html" method="post" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="form-material">
+                                                <select  class="form-control" id="choose-review-type" name="choose-review-type" style="width: 100%;" ng-model="reviewTypeFlag"ng-change="onChangeReviewType(reviewTypeFlag)" ng-options="profile as profile.name for profile in userProfiles" data-js-select2>
+                                                </select>
+                                                <label for="choose-review-type">Review Type</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <table class="table table-borderless text-center" ng-disabled="reviewType">
+                                            <thead>
+                                                <label class="form-control" style="border-style: none;">Diags</label>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><input class="form-control" type="text" ></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="form-control" type="text" ></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="form-control" type="text" ></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="form-control" type="text" ></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="form-control" type="text" ></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="form-control" type="text" ></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="form-control" type="text" ></td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="form-material">
+                                                <button class="btn btn-info pull-right" type="button" ng-click="saveReview()">
+                                                    Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- END Basic Info (Default forms) -->
+                    </div>
+                </div>
+                <!-- 1 Basic Info -->
+            </div>
+        </div>
+    </div>
+    <!-- END  Add a Auth (Default forms) -->
+    <div class="col-lg-4" ng-show="addAuthFlag">
+        <div class="block" id="my-block">
+            <div class="block-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Basic Info (Default forms) -->
+                        <div class="block">
+                            <div class="block-content block-content-narrow">
+                                <form class="form-horizontal" action="index.html" method="post" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" >
+                                                <label for="choose-review-patient-name">Auth #</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6" ng-show="authExtensionFlag">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" >
+                                                <label for="choose-review-patient-name">Auth # Extensions</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="form-material">
+                                                <button class="btn btn-info pull-left" type="button" ng-click="addLOC()">
+                                                    Add LOC
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-show="authExtensionFlag">
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-material">
+                                                <select  class="form-control" id="choose-review-type" name="choose-review-type" style="width: 100%;" ng-model="reviewTypeFlag1"ng-change="onChangeReviewType(reviewTypeFlag)" ng-options="profile as profile.name for profile in userProfiles" data-js-select2>
+                                                </select>
+                                                <label for="choose-review-type">LOC</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" >
+                                                <label for="choose-review-patient-name">Days Auth'd</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-4">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" >
+                                                <label for="choose-review-patient-name">From</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" >
+                                                <label for="choose-review-patient-name">Thru</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-material">
+                                                <select  class="form-control" id="choose-review-type" name="choose-review-type" style="width: 100%;" ng-model="reviewTypeFlag1"ng-change="onChangeReviewType(reviewTypeFlag)" ng-options="profile as profile.name for profile in userProfiles" data-js-select2>
+                                                </select>
+                                                <label for="choose-review-type">Partial Auth</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="form-material">
+                                                <button class="btn btn-info pull-right" type="button" ng-click="saveAuth()">
+                                                    Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-material">
+                                                <select  class="form-control" id="choose-review-type" name="choose-review-type" style="width: 100%;" ng-model="reviewTypeFlag1"ng-change="onChangeReviewType(reviewTypeFlag)" ng-options="profile as profile.name for profile in userProfiles" data-js-select2>
+                                                </select>
+                                                <label for="choose-review-type">LOC</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" >
+                                                <label for="choose-review-patient-name">Days Auth'd</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-4">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" >
+                                                <label for="choose-review-patient-name">From</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" >
+                                                <label for="choose-review-patient-name">Thru</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-material">
+                                                <select  class="form-control" id="choose-review-type" name="choose-review-type" style="width: 100%;" ng-model="reviewTypeFlag1"ng-change="onChangeReviewType(reviewTypeFlag)" ng-options="profile as profile.name for profile in userProfiles" data-js-select2>
+                                                </select>
+                                                <label for="choose-review-type">Partial Auth</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="form-material">
+                                                <button class="btn btn-info pull-right" type="button" ng-click="saveAuth()">
+                                                    Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- END Basic Info (Default forms) -->
+                    </div>
+                </div>
+                <!-- 1 Basic Info -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END  urReview a VOB (Default forms) -->
+<div class="content content-narrow" ng-show="urReview">
+    <!-- END  Review a VOB (Default forms) -->
+    <div class="col-lg-4">
+        <div class="block" id="my-block">
+            <div class="block-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Basic Info (Default forms) -->
+                        <div class="block" ng-disabled="reviewType">
+                            <div class="block-content block-content-narrow">
+                                <form class="form-horizontal" action="index.html" method="post" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" >
+                                                <label for="choose-review-patient-name">Patient Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-material">
+                                                <label for="choose-review-patient-name">Initial Review</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <button class="btn btn-info" type="button" ng-click="edit()">
+                                                <i class="fa fa-pencil"></i>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-mr" name="choose-review-mr" >
+                                                <label for="choose-review-mr">MR #</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-material">
+                                                <input data-js-datepicker class="form-control" type="text" id="choose-review-date" name="choose-review-date" data-date-format="dd/mm/yyyy" >
+                                                <label for="choose-review-date">Review Date</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-3">
+                                            <div class="form-material">
+                                                <input data-js-datepicker class="form-control" type="text" id="choose-review-doa" name="choose-review-doa" data-date-format="dd/mm/yyyy" >
+                                                <label for="choose-review-doa">DOA</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-mg" name="choose-review-mg" >
+                                                <label for="choose-review-doa">Diag1</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-mg" name="choose-review-mg" >
+                                                <label for="choose-review-mg">MG Staff Resource</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- END Basic Info (Default forms) -->
+                    </div>
+                </div>
+                <!-- 1 Basic Info -->
+            </div>
+        </div>
+    </div>
+    <!-- END  Add a Auth (Default forms) -->
+    <div class="col-lg-4">
+        <div class="block" id="my-block">
+            <div class="block-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Basic Info (Default forms) -->
+                        <div class="block">
+                            <div class="block-content block-content-narrow">
+                                <form class="form-horizontal" action="index.html" method="post" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" >
+                                                <label for="choose-review-patient-name">Auth #</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6" ng-show="authExtensionFlag">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" >
+                                                <label for="choose-review-patient-name">Auth # Extensions</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" >
+                                                <label for="choose-review-type">LOC</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="choose-review-patient-name" name="choose-review-patient-name" >
+                                                <label for="choose-review-patient-name">Days Auth'd</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- END Basic Info (Default forms) -->
+                    </div>
+                </div>
+                <!-- 1 Basic Info -->
+            </div>
+        </div>
+    </div>
+</div>
+

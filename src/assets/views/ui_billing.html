@@ -1,0 +1,344 @@
+<!-- Page Content -->
+<div class="content bg-gray-lighter">
+    <div class="row items-push">
+        <div class="col-sm-3">
+            <h1 class="page-heading">
+                SMITH, JOHN
+            </h1>
+        </div>
+        <div class="col-sm-3">
+            <h1 class="page-heading">
+                MG23498423
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="content content-narrow">
+    <h3 class="font-w600">New Bill</h3>
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- New Bill (Default forms) -->
+            <div class="block">
+                <div class="block-header">
+                    <ul class="block-options">
+                        <li>
+                            <button type="button"><i class="fa fa-close"></i></button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block-content block-content-narrow">
+                    <form class="form-horizontal" action="index.html" method="post" onsubmit="return false;">
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <div class="form-material">
+                                    <input data-js-datepicker class="form-control" type="text" id="ur-choose-vob-dob" name="ur-choose-vob-dob" data-date-format="dd/mm/yyyy" >
+                                    <label for="ur-choose-vob-dob">Bill Date</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-material">
+                                    <input data-js-datepicker class="form-control" type="text" id="ur-choose-vob-dob" name="ur-choose-vob-dob" data-date-format="dd/mm/yyyy" >
+                                    <label for="ur-choose-vob-dob">From</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-material">
+                                    <input data-js-datepicker class="form-control" type="text" id="ur-choose-vob-dob" name="ur-choose-vob-dob" data-date-format="dd/mm/yyyy" >
+                                    <label for="ur-choose-vob-dob">Thru</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-insurance" name="ur-choose-insurance" >
+                                    <label for="ur-choose-vob-dob">Office Ally ID #</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <label for="ur-choose-insurance">Billed Services</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-material">
+                                    <label for="ur-choose-ptid">Qty</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-material">
+                                    <label for="ur-choose-ptid">Charges</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-repeat="billingService in billingServices">
+                        <div class="form-group" id="billItem-{{$index}}">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-insurance" name="ur-choose-insurance" >
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-ptid" name="ur-choose-ptid" >
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-ptid" name="ur-choose-ptid" >
+                                </div>
+                            </div>
+                            <div class="col-sm-1"><button type="button" ><i class="fa fa-close"></i></button></div>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8">
+                                <div class="form-material">
+                                    <button class="btn btn-info pull-left" type="button" ng-click="addNewBill()">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-group" name="ur-choose-group" >
+                                    <label for="ur-choose-group">Total</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-insurance" name="ur-choose-insurance" >
+                                    <label for="ur-choose-insurance">Facility</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-ptid" name="ur-choose-ptid" >
+                                    <label for="ur-choose-ptid">Insurance</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-ptid" name="ur-choose-ptid" >
+                                    <label for="ur-choose-ptid">35% Allowable</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-insurance" name="ur-choose-insurance" >
+                                    <label for="ur-choose-insurance">NPI</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-ptid" name="ur-choose-ptid" >
+                                    <label for="ur-choose-ptid">Pt ID #</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-material">
+                                    <label class="css-input css-checkbox css-checkbox-primary">
+                                        Includes Ancillary Chgs
+                                        <input type="checkbox" id="row_substance-sub" name="row_substance-sub" checked><span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button class="btn btn-info pull-right" type="button" ng-click="chooseRevieiw()">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>            <!-- END  New Bill (Default forms) -->
+    </div>
+</div>
+<div class="content content-narrow">
+    <h3 class="font-w600">Bill Management</h3>
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Billing Management (Default forms) -->
+            <div class="block">
+                <div class="block-header">
+                    <ul class="block-options">
+                        <li>
+                            <button type="button"><i class="fa fa-pencil"></i></button>
+                        </li>
+                        <li>
+                            <button type="button"><i class="fa fa-close"></i></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">Bill #823941034</h3>
+                </div>
+                <div class="block-content block-content-narrow">
+                    <form class="form-horizontal" action="index.html" method="post" onsubmit="return false;">
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input data-js-datepicker class="form-control" type="text" id="ur-choose-vob-dob" name="ur-choose-vob-dob" data-date-format="dd/mm/yyyy" >
+                                    <label for="ur-choose-vob-dob">Bill Date</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input data-js-datepicker class="form-control" type="text" id="ur-choose-vob-dob" name="ur-choose-vob-dob" data-date-format="dd/mm/yyyy" >
+                                    <label for="ur-choose-vob-dob">Close Date</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-insurance" name="ur-choose-insurance" >
+                                    <label for="ur-choose-insurance">Total Charges</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-ptid" name="ur-choose-ptid" >
+                                    <label for="ur-choose-ptid">Office Ally ID</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input data-js-datepicker class="form-control" type="text" id="ur-choose-vob-completed" name="ur-choose-vob-completed" data-date-format="dd/mm/yyyy" >
+                                    <label for="ur-choose-vob-completed">From Date</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-group" name="ur-choose-group" >
+                                    <label for="ur-choose-group">MG Ref #</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input data-js-datepicker class="form-control" type="text" id="ur-choose-vob-completed" name="ur-choose-vob-completed" data-date-format="dd/mm/yyyy" >
+                                    <label for="ur-choose-vob-completed">Thru Date</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-mg" name="ur-choose-mg" >
+                                    <label for="ur-choose-mg">Services</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-info pull-right" type="button" ng-click="chooseRevieiw()">
+                                    Close Bill
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- END  Bill (Default forms) -->
+            <!-- Payment (Default forms) -->
+            <div class="block">
+                <div class="block-header">
+                    <ul class="block-options">
+                        <li>
+                            <button type="button"><i class="fa fa-pencil"></i></button>
+                        </li>
+                        <li>
+                            <button type="button"><i class="fa fa-close"></i></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">Payment</h3>
+                </div>
+                <div class="col-sm-12">
+                    <button class="btn btn-success pull-right" type="button" ng-click="addNewPayment()">
+                        New Payment
+                    </button>
+                </div>
+                <div class="block-content block-content-narrow" ng-show="paymentFlag">
+                    <form class="form-horizontal" action="index.html" method="post" onsubmit="return false;">
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <select  class="form-control" id="choose-review-type" name="choose-review-type" style="width: 100%;" ng-model="reviewTypeFlag"ng-change="onChangeReviewType(reviewTypeFlag)" ng-options="profile as profile.name for profile in userProfiles" data-js-select2>
+                                    </select>
+                                    <label for="choose-review-type">Reason Code</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-insurance" name="ur-choose-insurance" >
+                                    <label for="ur-choose-vob-dob">Allowed</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input data-js-datepicker class="form-control" type="text" id="ur-choose-vob-completed" name="ur-choose-vob-completed" data-date-format="dd/mm/yyyy" >
+                                    <label for="ur-choose-insurance">Paid Date</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-ptid" name="ur-choose-ptid" >
+                                    <label for="ur-choose-ptid">Paid Amount</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-ptid" name="ur-choose-ptid" >
+                                    <label for="ur-choose-vob-completed">Check #</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-ptid" name="ur-choose-ptid" >
+                                    <label for="ur-choose-group">Paid to Pt</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <select  class="form-control" id="choose-review-type" name="choose-review-type" style="width: 100%;" ng-model="reviewTypeFlag"ng-change="onChangeReviewType(reviewTypeFlag)" ng-options="profile as profile.name for profile in userProfiles" data-js-select2>
+                                    </select>
+                                    <label for="choose-review-type">Check Type</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-insurance" name="ur-choose-insurance" >
+                                    <label for="ur-choose-vob-dob">Ded</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="ur-choose-insurance" name="ur-choose-insurance" >
+                                    <label for="ur-choose-vob-dob">Coins</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End Payment (Default forms) -->
+    </div>
+</div>
