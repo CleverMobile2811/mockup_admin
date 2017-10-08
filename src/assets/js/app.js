@@ -14,7 +14,7 @@ var App = angular.module('app', [
 ]);
 
 App.constant('appConfig', {
-    'apiUrl': 'http://localhost:3000/'
+    'apiUrl': 'http://18.194.177.95:3000/'
 });
 
 
